@@ -136,3 +136,9 @@ productButton.addEventListener("click", () => {
 close.addEventListener("click", () => {
   payment.style.display = "none";
 });
+
+document.getElementById("feedback-form").addEventListener("submit", function(event){
+  event.preventDefault();
+  alert("Thank you for your feedback!");
+  // connect to database
+});

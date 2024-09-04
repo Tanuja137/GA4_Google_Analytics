@@ -137,8 +137,18 @@ close.addEventListener("click", () => {
   payment.style.display = "none";
 });
 
-document.getElementById("feedbackForm").addEventListener("submit", function(event){
-  event.preventDefault();
-  alert("Thank you for your feedback!");
-  // connect to database
+
+document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Collect form data
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const feedback = document.getElementById("feedback").value;
+
+  // Show an alert message to the user
+  alert(`Thank you, ${name}, for your feedback! We will get back to you at ${email}.`);
+
+  // Here, you can add code to connect to your database or send the form data
 });
+

@@ -139,7 +139,7 @@ close.addEventListener("click", () => {
 
 
 document.getElementById("feedbackForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault(); // Prevent the default form submission
 
   // Collect form data
   const name = document.getElementById("name").value;
@@ -149,6 +149,13 @@ document.getElementById("feedbackForm").addEventListener("submit", function(even
   // Show an alert message to the user
   alert(`Thank you, ${name}, for your feedback! We will get back to you at ${email}.`);
 
-  // Here, you can add code to connect to your database or send the form data
-});
+  // Send event to the dataLayer for GTM
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'formSubmission',
+    'formId': 'feedbackForm',
+    'formClass': 'feedback'
+  });
 
+  // Here, you can add code to send the form data to your database
+});
